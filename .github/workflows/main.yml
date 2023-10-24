@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Build steps
         id: build
-        uses: actions/docker-caddy-cloudflare@v1
+        uses: gk-codes/docker-caddy-cloudflare@v1
         with:
           version: '2.7.5'
       # Use the output from the `hello` step
