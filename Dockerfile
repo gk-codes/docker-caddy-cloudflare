@@ -1,4 +1,6 @@
 # https://hub.docker.com/_/caddy
+ARG CADDY_VERSION
+
 FROM caddy:$CADDY_VERSION-builder-alpine AS builder
 
 RUN caddy-builder \
