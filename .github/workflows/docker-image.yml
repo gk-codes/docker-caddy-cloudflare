@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  CADDY_VERSION: 2.7.5
-
 jobs:
 
   build:
@@ -18,4 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --build-arg CADDY_VERSION=${INPUT_CADDY_VERSION} --tag caddy-cloudflaredns:${INPUT_CADDY_VERSION}
+      with:
+        env: 
+          CADDY_VERSION: 2.7.5
+      run: |
+        docker build . --file Dockerfile \
+        --build-arg CADDY_VERSION="$CADDY_VERSION" \
+        --tag caddy-cloudflaredns:"$CADDY_VERSION"
