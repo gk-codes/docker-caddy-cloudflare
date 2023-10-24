@@ -1,0 +1,16 @@
+# action.yml
+name: 'Caddy Server with Cloudflare DNS'
+description: 'Build Caddy server with Cloudflare DNS plugin'
+inputs:
+  version:  # id of input
+    description: 'Caddy version'
+    required: true
+    default: '2.7.5'
+outputs:
+  time: # id of output
+    description: 'Build done'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.version }}
