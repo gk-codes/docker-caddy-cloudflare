@@ -17,4 +17,7 @@ jobs:
     - name: Build the Docker image
       env: 
         CADDY_VERSION: 2.7.5
-      run: docker build . --file Dockerfile --build-arg CADDY_VERSION="$CADDY_VERSION" --tag caddy-cloudflaredns:"$CADDY_VERSION"
+      run: |
+        docker build . --file Dockerfile \
+        --build-arg CADDY_VERSION="$CADDY_VERSION" \
+        --tag caddy-cloudflaredns:"$CADDY_VERSION"
